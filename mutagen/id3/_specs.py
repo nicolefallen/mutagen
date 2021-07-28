@@ -8,14 +8,13 @@
 import struct
 import codecs
 from struct import unpack, pack
-
+from enum import IntEnum
 from .._util import total_ordering, decode_terminated, enum, flags, \
     cdata, encode_endian, intround, bchr
 from ._util import BitPaddedInt, is_valid_frame_id
 
 
-@enum
-class PictureType(object):
+class PictureType(IntEnum):
     """Enumeration of image types defined by the ID3 standard for the APIC
     frame, but also reused in WMA/FLAC/VorbisComment.
     """
@@ -226,8 +225,7 @@ class SizedIntegerSpec(Spec):
         return value
 
 
-@enum
-class Encoding(object):
+class Encoding(IntEnum):
     """Text Encoding"""
 
     LATIN1 = 0
